@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Encrypt {
+public class Decrypt {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
@@ -19,12 +19,7 @@ public class Encrypt {
 		userInput = userInput / 10;
 		fourDigits[0] = userInput % 10;
 		
-		//Encrypt
-		for (int i = 0; i < 4; ++i) {
-			fourDigits[i] = (fourDigits[i] + 7) % 10;
-		}
-		
-		//swap
+		//Undo Swap
 		for (int i = 0; i < 2; ++i) {
 			int tmpNum;
 			tmpNum = fourDigits[i];
@@ -32,11 +27,14 @@ public class Encrypt {
 			fourDigits[i + 2] = tmpNum;
 		}
 		
-		//Print
-		System.out.println("Encrypted:");
-		for (int i= 0; i < 4; ++i) {
+		//Decrypt
+		System.out.println("Decrypted:");
+		for (int i = 0; i < 4; ++i) {
+			fourDigits[i] = (fourDigits[i] + 3) % 10;
 			System.out.print(fourDigits[i]);
 		}
+		
+
 	}
 
 }
